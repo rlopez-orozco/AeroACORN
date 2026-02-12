@@ -7,14 +7,17 @@
 
   <style>
     :root{
-      --bg: #0b1220;
-      --surface: rgba(255,255,255,0.06);
-      --border: rgba(255,255,255,0.14);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.72);
-      --shadow: 0 18px 50px rgba(0,0,0,0.35);
+      --bg: #f7f8fb;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: rgba(2,6,23,0.10);
+      --shadow: 0 18px 45px rgba(2,6,23,0.10);
       --radius: 18px;
       --max: 1120px;
+
+      --accent: #0ea5e9; /* azul claro elegante */
+      --accent2: #22c55e; /* verde suave */
     }
 
     *{ box-sizing: border-box; }
@@ -22,8 +25,8 @@
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       line-height: 1.6;
-      color: #111827;
-      background: #f6f7fb;
+      color: var(--text);
+      background: var(--bg);
     }
 
     .container{
@@ -32,59 +35,58 @@
       padding: 0 20px;
     }
 
-    /* HERO */
+    /* HERO CLARO */
     header.hero{
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(139,233,253,0.25), transparent 60%),
-                  radial-gradient(900px 500px at 80% 10%, rgba(124,58,237,0.18), transparent 55%),
-                  linear-gradient(180deg, #0b1220 0%, #0a1630 100%);
-      color: var(--text);
-      padding: 20px 0 54px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(900px 380px at 15% 5%, rgba(14,165,233,0.14), transparent 60%),
+        radial-gradient(900px 380px at 85% 0%, rgba(34,197,94,0.10), transparent 55%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
+      border-bottom: 1px solid rgba(2,6,23,0.08);
+      padding: 22px 0 34px;
     }
 
-    /* Top logos row (izq - centro - dcha) */
+    /* Logos: izq-centro-dcha */
     .topbar{
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 10px 0 20px;
       gap: 12px;
+      padding: 6px 0 18px;
     }
     .logo-left{ justify-self: start; }
     .logo-center{ justify-self: center; }
     .logo-right{ justify-self: end; }
 
+    /* SIN recuadros: solo control de tamaño y alineación */
     .topbar img{
-      height: 56px;
+      height: 78px;       /* más grande */
       width: auto;
       object-fit: contain;
-      background: rgba(255,255,255,0.88);
-      border-radius: 12px;
-      padding: 8px 12px;
-      border: 1px solid rgba(255,255,255,0.18);
+      display: block;
     }
 
+    /* Kicker */
     .badge{
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--muted);
+      background: rgba(14,165,233,0.08);
+      border: 1px solid rgba(14,165,233,0.18);
+      color: #075985;
       font-size: 14px;
       white-space: nowrap;
       margin-bottom: 12px;
     }
 
+    /* Bloque principal hero */
     .heroMain{
-      text-align: left;
-      padding-top: 8px;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 18px;
       align-items: start;
+      padding-top: 6px;
     }
 
     h1{
@@ -92,7 +94,7 @@
       font-size: 56px;
       line-height: 1.05;
       letter-spacing: -0.02em;
-      color: #fff;
+      color: var(--text);
     }
 
     .sub{
@@ -102,18 +104,19 @@
       max-width: 70ch;
     }
 
+    /* Desplegable título EN */
     details{
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid rgba(2,6,23,0.10);
       border-radius: 14px;
       padding: 12px 14px;
-      color: var(--muted);
+      box-shadow: 0 12px 30px rgba(2,6,23,0.08);
       max-width: 78ch;
     }
     summary{
       cursor: pointer;
-      font-weight: 650;
-      color: rgba(255,255,255,0.88);
+      font-weight: 700;
+      color: var(--text);
       list-style: none;
     }
     summary::-webkit-details-marker{ display:none; }
@@ -123,20 +126,16 @@
       font-size: 14px;
     }
 
+    /* Quitamos “En una frase” y lo convertimos en una nota elegante */
     .heroSide{
       justify-self: end;
       width: 100%;
       max-width: 360px;
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid rgba(2,6,23,0.10);
       border-radius: var(--radius);
       padding: 16px;
-      box-shadow: var(--shadow);
-    }
-    .heroSide h3{
-      margin: 0 0 8px;
-      color: rgba(255,255,255,0.92);
-      font-size: 16px;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.10);
     }
     .heroSide p{
       margin: 0;
@@ -147,15 +146,16 @@
     /* Sections */
     section{ padding: 56px 0; }
     h2{
-      margin: 0 0 10px;
-      font-size: 32px;
+      margin: 0 0 12px;
+      font-size: 34px;
       letter-spacing: -0.01em;
-      color: #0f172a;
+      color: var(--text);
     }
     .lead{
-      margin: 0 0 20px;
-      color: #475569;
+      margin: 0 0 18px;
+      color: var(--muted);
       max-width: 90ch;
+      font-size: 16px;
     }
 
     /* Cards */
@@ -163,10 +163,10 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
-      margin-top: 18px;
+      margin-top: 12px;
     }
     .card{
-      background: #fff;
+      background: var(--surface);
       border: 1px solid rgba(2,6,23,0.08);
       border-radius: var(--radius);
       box-shadow: 0 18px 40px rgba(2,6,23,0.08);
@@ -175,7 +175,7 @@
     .card h3{
       margin: 0 0 10px;
       font-size: 20px;
-      color: #0f172a;
+      color: var(--text);
     }
     .card p{
       margin: 0;
@@ -185,50 +185,48 @@
 
     /* Infografía */
     .figure{
-      margin-top: 18px;
-      background: #fff;
+      margin-top: 14px;
+      background: #ffffff;
       border: 1px solid rgba(2,6,23,0.08);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 18px;
       box-shadow: 0 18px 40px rgba(2,6,23,0.08);
     }
-    .infografia-wrap{
-      position: relative;
-      max-width: 100%;
-      margin: 0 auto;
+    .actions{
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 12px 0 0;
     }
-    .infografia-wrap img{
-      width: 100%;
-      height: auto;
-      display: block;
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 14px;
       border-radius: 12px;
-    }
-
-    .tag{
-      position: absolute;
-      padding: 8px 12px;
-      background: rgba(255,255,255,0.94);
       border: 1px solid rgba(2,6,23,0.10);
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 750;
-      color: #0f172a;
-      box-shadow: 0 10px 24px rgba(2,6,23,0.12);
-      white-space: nowrap;
-      user-select: none;
+      background: #ffffff;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 10px 22px rgba(2,6,23,0.08);
+    }
+    .btn.primary{
+      border-color: rgba(14,165,233,0.25);
+      background: rgba(14,165,233,0.10);
+      color: #075985;
     }
 
-    /* Posiciones (aprox) para Infografia.jpg (página 2) */
-    .tag-coleccion{ top: 24%; left: 5.5%; }
-    .tag-procesado{ top: 52%; left: 5.5%; }
-    .tag-indice{ top: 52%; right: 18%; }
-    .tag-modelo{ bottom: 17%; left: 50%; transform: translateX(-50%); }
-    .tag-difusion{ bottom: 17%; right: 11%; }
-
-    .note{
-      margin: 10px 0 0;
-      color: #64748b;
-      font-size: 14px;
+    /* Embed PDF (opcional) */
+    .pdf{
+      width: 100%;
+      height: 640px;
+      border: 1px solid rgba(2,6,23,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-top: 14px;
+      background: #fff;
     }
 
     footer{
@@ -245,13 +243,14 @@
       .heroSide{ justify-self: start; max-width: 100%; }
       h1{ font-size: 44px; }
       .cards{ grid-template-columns: 1fr; }
-      .topbar img{ height: 52px; }
+      .topbar img{ height: 68px; }
+      .pdf{ height: 520px; }
     }
     @media (max-width: 700px){
-      .tag{ display:none; }
       h1{ font-size: 38px; }
       .sub{ font-size: 16px; }
-      .topbar img{ height: 46px; padding: 7px 10px; }
+      .topbar img{ height: 58px; }
+      .pdf{ height: 420px; }
     }
   </style>
 </head>
@@ -294,7 +293,6 @@
         </div>
 
         <aside class="heroSide">
-          <h3>En una frase</h3>
           <p>
             Anticipar la producción de bellota con meses de antelación integrando polen atmosférico,
             datos meteorológicos, producción real e imágenes satelitales.
@@ -310,7 +308,6 @@
     <section id="reto-solucion">
       <div class="container">
         <h2>¿Qué problema resuelve AeroACORN?</h2>
-        <p class="lead">Dos ideas clave, en formato breve.</p>
 
         <div class="cards">
           <div class="card">
@@ -319,7 +316,7 @@
               La producción de bellota es fundamental para la sostenibilidad de la dehesa y la economía del cerdo ibérico. Sin embargo,
               su elevada variabilidad anual dificulta la planificación ganadera y genera incertidumbre económica en zonas rurales.
               <br><br>
-              A diferencia de otros cultivos como el olivar —donde la producción se cuantifica con precisión en almazara— la bellota no se cosecha
+              A diferencia de otros cultivos como el olivar, donde la producción se cuantifica con precisión en almazara, la bellota no se cosecha
               ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol. Esto hace que los datos productivos sean
               escasos, fragmentarios y, en muchos casos, inexistentes.
             </p>
@@ -344,6 +341,7 @@
     <section id="metodo">
       <div class="container">
         <h2>¿Cómo funciona el sistema?</h2>
+
         <p class="lead">
           Integramos información aerobiológica (polen atmosférico), datos meteorológicos, registros reales de producción de bellota e imágenes satelitales.
           Tras su procesamiento e integración, se genera un índice de producción que alimenta un modelo predictivo. Los resultados se difunden para su uso
@@ -351,17 +349,20 @@
         </p>
 
         <div class="figure">
-          <div class="infografia-wrap">
-            <img src="./Infografia.jpg" alt="Esquema del sistema AeroACORN (página 2)">
+          <p class="lead" style="margin-bottom:10px;">
+            Esquema general del flujo de datos y del modelo.
+          </p>
 
-            <span class="tag tag-coleccion">Recogida de datos</span>
-            <span class="tag tag-procesado">Procesamiento de datos</span>
-            <span class="tag tag-indice">Índice de producción de bellota</span>
-            <span class="tag tag-modelo">Modelo</span>
-            <span class="tag tag-difusion">Difusión</span>
+          <div class="actions">
+            <a class="btn primary" href="./Infografia.pdf" target="_blank" rel="noopener">Abrir infografía (PDF)</a>
+            <a class="btn" href="./Infografia.pdf" download>Descargar PDF</a>
           </div>
 
-          <p class="note">Nota: en móvil las etiquetas se ocultan automáticamente para no tapar la imagen.</p>
+          <!-- OPCIÓN A: incrustar el PDF (si lo prefieres). Si da problemas en móvil, deja solo los botones de arriba. -->
+          <div class="pdf">
+            <embed src="./Infografia.pdf" type="application/pdf" width="100%" height="100%">
+          </div>
+
         </div>
       </div>
     </section>
