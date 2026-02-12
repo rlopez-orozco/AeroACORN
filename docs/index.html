@@ -1,377 +1,329 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AeroACORN</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AeroACORN</title>
 
-  <style>
-    :root{
-      --bg: #f7f8fb;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: rgba(2,6,23,0.10);
-      --shadow: 0 18px 45px rgba(2,6,23,0.10);
-      --radius: 18px;
-      --max: 1120px;
+<style>
+:root{
+  --bg:#f7f8fb;
+  --surface:#ffffff;
+  --text:#0f172a;
+  --muted:#475569;
+  --border:rgba(2,6,23,0.10);
+  --shadow:0 18px 45px rgba(2,6,23,0.10);
+  --radius:18px;
+  --max:1120px;
+  --accent:#0ea5e9;
+}
 
-      --accent: #0ea5e9; /* azul claro elegante */
-      --accent2: #22c55e; /* verde suave */
-    }
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  line-height:1.6;
+  color:var(--text);
+  background:var(--bg);
+}
 
-    *{ box-sizing: border-box; }
-    body{
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: var(--bg);
-    }
+.container{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 20px;
+}
 
-    .container{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+/* HERO */
+header.hero{
+  background:
+    radial-gradient(900px 380px at 15% 5%, rgba(14,165,233,0.14), transparent 60%),
+    radial-gradient(900px 380px at 85% 0%, rgba(34,197,94,0.10), transparent 55%),
+    linear-gradient(180deg,#ffffff 0%,#f7f8fb 100%);
+  border-bottom:1px solid rgba(2,6,23,0.08);
+  padding:22px 0 34px;
+}
 
-    /* HERO CLARO */
-    header.hero{
-      background:
-        radial-gradient(900px 380px at 15% 5%, rgba(14,165,233,0.14), transparent 60%),
-        radial-gradient(900px 380px at 85% 0%, rgba(34,197,94,0.10), transparent 55%),
-        linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
-      border-bottom: 1px solid rgba(2,6,23,0.08);
-      padding: 22px 0 34px;
-    }
+.topbar{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:12px;
+  padding:6px 0 18px;
+}
+.logo-left{justify-self:start;}
+.logo-center{justify-self:center;}
+.logo-right{justify-self:end;}
 
-    /* Logos: izq-centro-dcha */
-    .topbar{
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 12px;
-      padding: 6px 0 18px;
-    }
-    .logo-left{ justify-self: start; }
-    .logo-center{ justify-self: center; }
-    .logo-right{ justify-self: end; }
+.topbar img{
+  height:78px;
+  width:auto;
+  object-fit:contain;
+}
 
-    /* SIN recuadros: solo control de tamaño y alineación */
-    .topbar img{
-      height: 78px;       /* más grande */
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
+.badge{
+  display:inline-flex;
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(14,165,233,0.08);
+  border:1px solid rgba(14,165,233,0.18);
+  color:#075985;
+  font-size:14px;
+  margin-bottom:12px;
+}
 
-    /* Kicker */
-    .badge{
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(14,165,233,0.08);
-      border: 1px solid rgba(14,165,233,0.18);
-      color: #075985;
-      font-size: 14px;
-      white-space: nowrap;
-      margin-bottom: 12px;
-    }
+.heroMain{
+  display:grid;
+  grid-template-columns:1.25fr 0.75fr;
+  gap:18px;
+}
 
-    /* Bloque principal hero */
-    .heroMain{
-      display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 18px;
-      align-items: start;
-      padding-top: 6px;
-    }
+h1{
+  margin:0 0 10px;
+  font-size:56px;
+  line-height:1.05;
+}
 
-    h1{
-      margin: 0 0 10px;
-      font-size: 56px;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
+.sub{
+  margin:0 0 14px;
+  font-size:18px;
+  color:var(--muted);
+}
 
-    .sub{
-      margin: 0 0 14px;
-      font-size: 18px;
-      color: var(--muted);
-      max-width: 70ch;
-    }
+details{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:12px 14px;
+  box-shadow:0 12px 30px rgba(2,6,23,0.08);
+}
+summary{
+  cursor:pointer;
+  font-weight:700;
+}
+.enTitle{
+  margin-top:8px;
+  font-size:14px;
+  color:var(--muted);
+}
 
-    /* Desplegable título EN */
-    details{
-      background: #ffffff;
-      border: 1px solid rgba(2,6,23,0.10);
-      border-radius: 14px;
-      padding: 12px 14px;
-      box-shadow: 0 12px 30px rgba(2,6,23,0.08);
-      max-width: 78ch;
-    }
-    summary{
-      cursor: pointer;
-      font-weight: 700;
-      color: var(--text);
-      list-style: none;
-    }
-    summary::-webkit-details-marker{ display:none; }
-    .enTitle{
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+.heroSide{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:var(--shadow);
+  font-size:14px;
+  color:var(--muted);
+}
 
-    /* Quitamos “En una frase” y lo convertimos en una nota elegante */
-    .heroSide{
-      justify-self: end;
-      width: 100%;
-      max-width: 360px;
-      background: #ffffff;
-      border: 1px solid rgba(2,6,23,0.10);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 18px 40px rgba(2,6,23,0.10);
-    }
-    .heroSide p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
+/* Sections */
+section{padding:56px 0;}
+h2{font-size:34px;margin-bottom:12px;}
 
-    /* Sections */
-    section{ padding: 56px 0; }
-    h2{
-      margin: 0 0 12px;
-      font-size: 34px;
-      letter-spacing: -0.01em;
-      color: var(--text);
-    }
-    .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      max-width: 90ch;
-      font-size: 16px;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:22px;
+}
+.card h3{margin-top:0;}
 
-    /* Cards */
-    .cards{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 12px;
-    }
-    .card{
-      background: var(--surface);
-      border: 1px solid rgba(2,6,23,0.08);
-      border-radius: var(--radius);
-      box-shadow: 0 18px 40px rgba(2,6,23,0.08);
-      padding: 22px;
-    }
-    .card h3{
-      margin: 0 0 10px;
-      font-size: 20px;
-      color: var(--text);
-    }
-    .card p{
-      margin: 0;
-      color: #334155;
-      font-size: 16px;
-    }
+.figure{
+  margin-top:14px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
 
-    /* Infografía */
-    .figure{
-      margin-top: 14px;
-      background: #ffffff;
-      border: 1px solid rgba(2,6,23,0.08);
-      border-radius: var(--radius);
-      padding: 18px;
-      box-shadow: 0 18px 40px rgba(2,6,23,0.08);
-    }
-    .actions{
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 12px 0 0;
-    }
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(2,6,23,0.10);
-      background: #ffffff;
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 10px 22px rgba(2,6,23,0.08);
-    }
-    .btn.primary{
-      border-color: rgba(14,165,233,0.25);
-      background: rgba(14,165,233,0.10);
-      color: #075985;
-    }
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
 
-    /* Embed PDF (opcional) */
-    .pdf{
-      width: 100%;
-      height: 640px;
-      border: 1px solid rgba(2,6,23,0.08);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-top: 14px;
-      background: #fff;
-    }
+.btn{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#fff;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 10px 22px rgba(2,6,23,0.08);
+}
 
-    footer{
-      padding: 26px 0;
-      text-align: center;
-      color: #64748b;
-      border-top: 1px solid rgba(2,6,23,0.08);
-      background: #fff;
-    }
+.btn.primary{
+  background:rgba(14,165,233,0.10);
+  color:#075985;
+}
 
-    /* Responsive */
-    @media (max-width: 980px){
-      .heroMain{ grid-template-columns: 1fr; }
-      .heroSide{ justify-self: start; max-width: 100%; }
-      h1{ font-size: 44px; }
-      .cards{ grid-template-columns: 1fr; }
-      .topbar img{ height: 68px; }
-      .pdf{ height: 520px; }
-    }
-    @media (max-width: 700px){
-      h1{ font-size: 38px; }
-      .sub{ font-size: 16px; }
-      .topbar img{ height: 58px; }
-      .pdf{ height: 420px; }
-    }
-  </style>
+.pdf{
+  width:100%;
+  height:640px;
+  margin-top:14px;
+}
+
+/* Equipo */
+.team-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:22px;
+  box-shadow:var(--shadow);
+  max-width:860px;
+}
+
+.ip-link{
+  color:var(--accent);
+  font-weight:800;
+  text-decoration:none;
+}
+.ip-link:hover{text-decoration:underline;}
+
+.contact{
+  margin-top:18px;
+  padding-top:14px;
+  border-top:1px solid var(--border);
+  font-size:15px;
+}
+.contact a{
+  color:var(--accent);
+  font-weight:600;
+  text-decoration:none;
+}
+.contact a:hover{text-decoration:underline;}
+
+footer{
+  padding:26px 0;
+  text-align:center;
+  color:#64748b;
+  border-top:1px solid var(--border);
+  background:#fff;
+}
+
+@media(max-width:980px){
+  .heroMain{grid-template-columns:1fr;}
+  .cards{grid-template-columns:1fr;}
+}
+</style>
 </head>
 
 <body>
 
-  <header class="hero">
-    <div class="container">
+<header class="hero">
+<div class="container">
 
-      <div class="topbar">
-        <div class="logo-left">
-          <img src="./logoProyecto.png" alt="Logo del proyecto">
-        </div>
+<div class="topbar">
+<div class="logo-left">
+<img src="./logoProyecto.png" alt="Logo del proyecto">
+</div>
+<div class="logo-center">
+<img src="./UCO_logo.jpg" alt="Universidad de Córdoba">
+</div>
+<div class="logo-right">
+<img src="./RNM130_logo.jpg" alt="Grupo RNM130">
+</div>
+</div>
 
-        <div class="logo-center">
-          <img src="./UCO_logo.jpg" alt="Universidad de Córdoba">
-        </div>
+<div class="badge">AeroACORN (P.P. 2025 Submod. 2.6_1)</div>
 
-        <div class="logo-right">
-          <img src="./RNM130_logo.jpg" alt="Grupo RNM130">
-        </div>
-      </div>
+<div class="heroMain">
+<div>
+<h1>AeroACORN</h1>
+<p class="sub">
+Aerobiología y teledetección para el desarrollo del primer sistema integral de alerta en la predicción temprana de la producción de bellota
+</p>
 
-      <div class="badge">AeroACORN (P.P. 2025 Submod. 2.6_1)</div>
+<details>
+<summary>Ver título oficial del proyecto (EN)</summary>
+<div class="enTitle">
+<em>Aerobiology and remote sensing for early forecasting of ACORN production: first early warning system</em>
+</div>
+</details>
+</div>
 
-      <div class="heroMain">
-        <div>
-          <h1>AeroACORN</h1>
+<div class="heroSide">
+Anticipar la producción de bellota con meses de antelación integrando polen atmosférico,
+datos meteorológicos, producción real e imágenes satelitales.
+</div>
+</div>
 
-          <p class="sub">
-            Aerobiología y teledetección para el desarrollo del primer sistema integral de alerta en la predicción temprana de la producción de bellota
-          </p>
+</div>
+</header>
 
-          <details>
-            <summary>Ver título oficial del proyecto (EN)</summary>
-            <div class="enTitle">
-              <em>Aerobiology and remote sensing for early forecasting of ACORN production: first early warning system</em>
-            </div>
-          </details>
-        </div>
+<main>
 
-        <aside class="heroSide">
-          <p>
-            Anticipar la producción de bellota con meses de antelación integrando polen atmosférico,
-            datos meteorológicos, producción real e imágenes satelitales.
-          </p>
-        </aside>
-      </div>
+<section>
+<div class="container">
+<h2>¿Qué problema resuelve AeroACORN?</h2>
 
-    </div>
-  </header>
+<div class="cards">
+<div class="card">
+<h3>Un reto ecológico y económico sin resolver</h3>
+<p>
+La producción de bellota es fundamental para la sostenibilidad de la dehesa y la economía del cerdo ibérico.
+Sin embargo, su elevada variabilidad anual dificulta la planificación ganadera y genera incertidumbre económica en zonas rurales.
+<br><br>
+A diferencia de otros cultivos como el olivar, donde la producción se cuantifica con precisión en almazara, la bellota no se cosecha
+ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol. Esto hace que los datos productivos sean
+escasos, fragmentarios y, en muchos casos, inexistentes.
+</p>
+</div>
 
-  <main>
+<div class="card">
+<h3>El primer sistema integral de alerta para la producción de bellota</h3>
+<p>
+El proyecto desarrolla un modelo predictivo innovador que integra 27 años de datos de polen atmosférico,
+producción real de bellota, variables meteorológicas e imágenes satelitales.
+<br><br>
+El objetivo es anticipar la productividad con meses de antelación a la montanera,
+permitiendo planificar la carga ganadera, optimizar la gestión de recursos,
+reducir el impacto de años de baja producción y facilitar decisiones públicas más precisas.
+</p>
+</div>
+</div>
+</div>
+</section>
 
-    <section id="reto-solucion">
-      <div class="container">
-        <h2>¿Qué problema resuelve AeroACORN?</h2>
+<section>
+<div class="container">
+<h2>Equipo investigador</h2>
 
-        <div class="cards">
-          <div class="card">
-            <h3>Un reto ecológico y económico sin resolver</h3>
-            <p>
-              La producción de bellota es fundamental para la sostenibilidad de la dehesa y la economía del cerdo ibérico. Sin embargo,
-              su elevada variabilidad anual dificulta la planificación ganadera y genera incertidumbre económica en zonas rurales.
-              <br><br>
-              A diferencia de otros cultivos como el olivar, donde la producción se cuantifica con precisión en almazara, la bellota no se cosecha
-              ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol. Esto hace que los datos productivos sean
-              escasos, fragmentarios y, en muchos casos, inexistentes.
-            </p>
-          </div>
+<div class="team-card">
+<p><strong>Grupo de Aerobiología</strong><br>Universidad de Córdoba</p>
 
-          <div class="card">
-            <h3>El primer sistema integral de alerta para la producción de bellota</h3>
-            <p>
-              El proyecto desarrolla un modelo predictivo innovador que integra 27 años de datos de polen atmosférico, producción real de bellota,
-              variables meteorológicas e imágenes satelitales.
-              <br><br>
-              El objetivo es anticipar la productividad con meses de antelación a la montanera, permitiendo planificar la carga ganadera, optimizar la
-              gestión de recursos, reducir el impacto de años de baja producción y facilitar decisiones públicas más precisas, como la activación de ayudas
-              específicas al sector.
-            </p>
-          </div>
-        </div>
+<p>
+<strong>IP:</strong>
+<a class="ip-link" href="https://linktr.ee/rlopez_orozco" target="_blank">
+Rocío López-Orozco
+</a>
+</p>
 
-      </div>
-    </section>
+<p>
+Carmen Galán Soldevilla · Herminia García Mozo · Jose Oteros · Carmen García Llamas
+</p>
 
-    <section id="metodo">
-      <div class="container">
-        <h2>¿Cómo funciona el sistema?</h2>
+<div class="contact">
+📩 Contacto:
+<a href="mailto:rlorozco@uco.es">rlorozco@uco.es</a>
+</div>
+</div>
 
-        <p class="lead">
-          Integramos información aerobiológica (polen atmosférico), datos meteorológicos, registros reales de producción de bellota e imágenes satelitales.
-          Tras su procesamiento e integración, se genera un índice de producción que alimenta un modelo predictivo. Los resultados se difunden para su uso
-          como sistema de alerta.
-        </p>
+</div>
+</section>
 
-        <div class="figure">
-          <p class="lead" style="margin-bottom:10px;">
-            Esquema general del flujo de datos y del modelo.
-          </p>
+</main>
 
-          <div class="actions">
-            <a class="btn primary" href="./Infografia.pdf" target="_blank" rel="noopener">Abrir infografía (PDF)</a>
-            <a class="btn" href="./Infografia.pdf" download>Descargar PDF</a>
-          </div>
-
-          <!-- OPCIÓN A: incrustar el PDF (si lo prefieres). Si da problemas en móvil, deja solo los botones de arriba. -->
-          <div class="pdf">
-            <embed src="./Infografia.pdf" type="application/pdf" width="100%" height="100%">
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    © 2026 AeroACORN | Universidad de Córdoba
-  </footer>
+<footer>
+© 2026 AeroACORN | Universidad de Córdoba
+</footer>
 
 </body>
 </html>
