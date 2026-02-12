@@ -129,7 +129,7 @@ h2{
   color:#334155;
 }
 
-/* Infografía */
+/* Infografía (imagen) */
 .figure{
   background:var(--white);
   padding:24px;
@@ -138,32 +138,11 @@ h2{
   box-shadow:var(--shadow);
 }
 
-.actions{
-  display:flex;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.btn{
-  padding:10px 16px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:600;
-  border:1px solid var(--border);
-  background:var(--white);
-  color:var(--text);
-}
-
-.btn.primary{
-  background:#e0f2fe;
-  color:#0369a1;
-}
-
-.pdf{
+.infografia-img{
   width:100%;
-  height:650px;
+  height:auto;
+  display:block;
   border-radius:12px;
-  border:1px solid var(--border);
 }
 
 /* Equipo */
@@ -217,123 +196,116 @@ footer{
 <body>
 
 <header>
-<div class="container">
+  <div class="container">
 
-<div class="topbar">
-<div class="logo-left">
-<img src="./logoProyecto.png" alt="Logo Proyecto">
-</div>
-<div class="logo-center">
-<img src="./UCO_logo.jpg" alt="UCO">
-</div>
-<div class="logo-right">
-<img src="./RNM130_logo.jpg" alt="RNM130">
-</div>
-</div>
+    <div class="topbar">
+      <div class="logo-left">
+        <img src="./logoProyecto.png" alt="Logo Proyecto">
+      </div>
+      <div class="logo-center">
+        <img src="./UCO_logo.jpg" alt="UCO">
+      </div>
+      <div class="logo-right">
+        <img src="./RNM130_logo.jpg" alt="RNM130">
+      </div>
+    </div>
 
-<div class="badge">AeroACORN (P.P. 2025 Submod. 2.6_1)</div>
+    <div class="badge">AeroACORN (P.P. 2025 Submod. 2.6_1)</div>
 
-<h1>AeroACORN</h1>
+    <h1>AeroACORN</h1>
 
-<p class="sub">
-Aerobiología y teledetección para el desarrollo del primer sistema integral de alerta en la predicción temprana de la producción de bellota
-</p>
+    <p class="sub">
+      Aerobiología y teledetección para el desarrollo del primer sistema integral de alerta en la predicción temprana de la producción de bellota
+    </p>
 
-<details>
-<summary>Ver título oficial del proyecto (EN)</summary>
-<div class="enTitle">
-<em>Aerobiology and remote sensing for early forecasting of ACORN production: first early warning system</em>
-</div>
-</details>
+    <details>
+      <summary>Ver título oficial del proyecto (EN)</summary>
+      <div class="enTitle">
+        <em>Aerobiology and remote sensing for early forecasting of ACORN production: first early warning system</em>
+      </div>
+    </details>
 
-</div>
+  </div>
 </header>
 
 <main>
 
-<section>
-<div class="container">
-<h2>¿Qué problema resuelve AeroACORN?</h2>
+  <section id="reto">
+    <div class="container">
+      <h2>¿Qué problema resuelve AeroACORN?</h2>
 
-<div class="cards">
+      <div class="cards">
 
-<div class="card">
-<h3>Un reto ecológico y económico sin resolver</h3>
-<p>
-La producción de bellota es fundamental para la sostenibilidad de la dehesa y la economía del cerdo ibérico.
-Sin embargo, su elevada variabilidad anual dificulta la planificación ganadera y genera incertidumbre económica en zonas rurales.
-<br><br>
-A diferencia de otros cultivos como el olivar, donde la producción se cuantifica con precisión en almazara, la bellota no se cosecha
-ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol. Esto hace que los datos productivos sean
-escasos, fragmentarios y, en muchos casos, inexistentes.
-</p>
-</div>
+        <div class="card">
+          <h3>Un reto ecológico y económico sin resolver</h3>
+          <p>
+            La producción de bellota es fundamental para la sostenibilidad de la dehesa y la economía del cerdo ibérico.
+            Sin embargo, su elevada variabilidad anual dificulta la planificación ganadera y genera incertidumbre económica en zonas rurales.
+            <br><br>
+            A diferencia de otros cultivos como el olivar, donde la producción se cuantifica con precisión en almazara, la bellota no se cosecha
+            ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol. Esto hace que los datos productivos sean
+            escasos, fragmentarios y, en muchos casos, inexistentes.
+          </p>
+        </div>
 
-<div class="card">
-<h3>El primer sistema integral de alerta para la producción de bellota</h3>
-<p>
-El proyecto desarrolla un modelo predictivo innovador que integra 27 años de datos de polen atmosférico,
-producción real de bellota, variables meteorológicas e imágenes satelitales.
-<br><br>
-El objetivo es anticipar la productividad con meses de antelación a la montanera,
-permitiendo planificar la carga ganadera, optimizar la gestión de recursos,
-reducir el impacto de años de baja producción y facilitar decisiones públicas más precisas.
-</p>
-</div>
+        <div class="card">
+          <h3>El primer sistema integral de alerta para la producción de bellota</h3>
+          <p>
+            El proyecto desarrolla un modelo predictivo innovador que integra 27 años de datos de polen atmosférico,
+            producción real de bellota, variables meteorológicas e imágenes satelitales.
+            <br><br>
+            El objetivo es anticipar la productividad con meses de antelación a la montanera,
+            permitiendo planificar la carga ganadera, optimizar la gestión de recursos,
+            reducir el impacto de años de baja producción y facilitar decisiones públicas más precisas, como la activación de ayudas específicas al sector.
+          </p>
+        </div>
 
-</div>
-</div>
-</section>
+      </div>
+    </div>
+  </section>
 
-<section>
-<div class="container">
-<h2>¿Cómo funciona el sistema?</h2>
+  <section id="metodo">
+    <div class="container">
+      <h2>¿Cómo funciona el sistema?</h2>
 
-<div class="figure">
+      <div class="figure">
+        <img class="infografia-img" src="./infografia.jpg" alt="Workflow AeroACORN (infografía en español)">
+      </div>
+    </div>
+  </section>
 
-<div class="actions">
-<a class="btn primary" href="./Infografia.pdf" target="_blank">Abrir infografía (PDF)</a>
-<a class="btn" href="./Infografia.pdf" download>Descargar PDF</a>
-</div>
+  <section id="equipo">
+    <div class="container">
+      <h2>Equipo investigador</h2>
 
-<embed class="pdf" src="./Infografia.pdf" type="application/pdf">
+      <div class="team-card">
+        <p><strong>Grupo de Aerobiología</strong><br>
+          Universidad de Córdoba
+        </p>
 
-</div>
-</div>
-</section>
+        <p><strong>IP:</strong>
+          <a class="ip-link" href="https://linktr.ee/rlopez_orozco" target="_blank" rel="noopener">
+            Rocío López-Orozco
+          </a>
+        </p>
 
-<section>
-<div class="container">
-<h2>Equipo investigador</h2>
+        <p>
+          Carmen Galán Soldevilla · Herminia García Mozo · Jose Oteros · Carmen García Llamas
+        </p>
 
-<div class="team-card">
+        <div class="contact">
+          📩 Contacto:
+          <a href="mailto:rlorozco@uco.es">rlorozco@uco.es</a>
+        </div>
+      </div>
 
-<p><strong>Grupo de Aerobiología</strong><br>
-Universidad de Córdoba</p>
-
-<p><strong>IP:</strong>
-<a class="ip-link" href="https://linktr.ee/rlopez_orozco" target="_blank">
-Rocío López Orozco
-</a>
-</p>
-
-<p>
-Carmen Galán Soldevilla · Herminia García Mozo · Jose Oteros · Carmen García Llamas
-</p>
-
-<div class="contact">
-📩 Contacto:
-<a href="mailto:rlorozco@uco.es">rlorozco@uco.es</a>
-</div>
-
-</div>
-</div>
-</section>
+    </div>
+  </section>
 
 </main>
 
 <footer>
-© 2026 AeroACORN | Universidad de Córdoba
+  © 2026 AeroACORN | Universidad de Córdoba
 </footer>
 
 </body>
