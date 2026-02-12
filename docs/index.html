@@ -1,70 +1,264 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AeroACORN</title>
+
   <style>
-    body {
+    :root{
+      --bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2c3e50;
+      --card: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --shadow: 0 12px 30px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    *{ box-sizing: border-box; }
+    body{
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
-    header {
-      background-color: #2c3e50;
-      color: white;
-      padding: 60px 20px;
+
+    a{ color: inherit; }
+
+    /* Layout */
+    .container{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Hero */
+    header{
+      background: var(--primary);
+      color: #fff;
+      padding: 64px 0 56px;
+    }
+    .hero{
       text-align: center;
     }
-    section {
-      padding: 40px 80px;
-    }
-    h2 {
-      color: #2c3e50;
-    }
-    footer {
-      background-color: #f4f4f4;
-      text-align: center;
-      padding: 20px;
+    .kicker{
+      display: inline-block;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.06);
       font-size: 14px;
+    }
+    h1{
+      margin: 0 0 10px 0;
+      font-size: 52px;
+      line-height: 1.1;
+    }
+    .subtitle{
+      max-width: 980px;
+      margin: 0 auto;
+      font-size: 18px;
+      opacity: 0.95;
+    }
+    .original-title{
+      margin-top: 14px;
+      font-size: 14px;
+      opacity: 0.75;
+    }
+
+    /* Sections */
+    section{
+      padding: 44px 0;
+    }
+    h2{
+      color: var(--primary);
+      font-size: 28px;
+      margin: 0 0 14px 0;
+    }
+    p{
+      margin: 0 0 12px 0;
+      color: var(--text);
+    }
+    .muted{
+      color: var(--muted);
+    }
+
+    /* Cards */
+    .cards{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 22px 20px;
+    }
+    .card h3{
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      color: var(--primary);
+    }
+    .card p{
+      margin: 0;
+      color: var(--text);
+    }
+
+    /* Infografía + etiquetas */
+    .infografia-wrap{
+      position: relative;
+      max-width: 1100px;
+      margin: 18px auto 0;
+    }
+    .infografia-wrap img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    .tag{
+      position: absolute;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    /* Posiciones aproximadas para la infografía de la pág. 2.
+       Si luego quieres, afinamos estas coordenadas al milímetro con una captura. */
+    .tag-coleccion{ top: 24%; left: 5.5%; }
+    .tag-procesado{ top: 51%; left: 5.5%; }
+    .tag-indice{ top: 51%; right: 18%; }
+    .tag-modelo{ bottom: 17%; left: 50%; transform: translateX(-50%); }
+    .tag-difusion{ bottom: 17%; right: 11%; }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      h1{ font-size: 42px; }
+      .cards{ grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px){
+      h1{ font-size: 36px; }
+      .subtitle{ font-size: 16px; }
+      .tag{ display:none; } /* En móvil ocultamos etiquetas para no tapar */
+    }
+
+    /* Footer */
+    footer{
+      background: #f6f7f8;
+      border-top: 1px solid var(--border);
+      padding: 22px 0;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>AeroACORN</h1>
-  <p>Aerobiology and remote sensing for early forecasting of ACORN production</p>
-</header>
+  <header>
+    <div class="container hero">
+      <div class="kicker">AeroACORN (P.P. 2025 Submod. 2.6_1)</div>
+      <h1>AeroACORN</h1>
 
-<section>
-  <h2>About the Project</h2>
-  <p>
-    AeroACORN aims to develop the first early warning system for ACORN production 
-    using integrated aerobiological monitoring and satellite remote sensing data.
-  </p>
-</section>
+      <p class="subtitle">
+        Aerobiología y teledetección para el desarrollo del primer sistema integral de alerta en la predicción temprana de la producción de bellota
+      </p>
 
-<section>
-  <h2>Objectives</h2>
-  <ul>
-    <li>Develop predictive models for acorn production</li>
-    <li>Integrate pollen monitoring with remote sensing indices</li>
-    <li>Support sustainable forest and agroforestry management</li>
-  </ul>
-</section>
+      <div class="original-title">
+        Título original del proyecto (EN): <em>Aerobiology and remote sensing for early forecasting of ACORN production: first early warning system</em>
+      </div>
+    </div>
+  </header>
 
-<section>
-  <h2>Methodology</h2>
-  <p>
-    The project combines long-term aerobiological datasets, phenological observations, 
-    and Earth Observation data to model production variability under climate change scenarios.
-  </p>
-</section>
+  <main>
 
-<footer>
-  © 2026 AeroACORN Project | University of Córdoba
-</footer>
+    <section id="reto-solucion">
+      <div class="container">
+        <h2>¿Qué problema resuelve AeroACORN?</h2>
+        <p class="muted">
+          Dos ideas clave, en formato breve.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Un reto ecológico y económico sin resolver</h3>
+            <p>
+              La producción de bellota es fundamental para la sostenibilidad de la dehesa y la economía del cerdo ibérico.
+              Sin embargo, su elevada variabilidad anual dificulta la planificación ganadera y genera incertidumbre económica
+              en zonas rurales.
+              <br><br>
+              A diferencia de otros cultivos como el olivar —donde la producción se cuantifica con precisión en almazara— la
+              bellota no se cosecha ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol.
+              Esto hace que los datos productivos sean escasos, fragmentarios y, en muchos casos, inexistentes.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>El primer sistema integral de alerta para la producción de bellota</h3>
+            <p>
+              El proyecto desarrolla un modelo predictivo innovador que integra 27 años de datos de polen atmosférico,
+              producción real de bellota, variables meteorológicas e imágenes satelitales.
+              <br><br>
+              El objetivo es anticipar la productividad con meses de antelación a la montanera, permitiendo planificar la carga ganadera,
+              optimizar la gestión de recursos, reducir el impacto de años de baja producción y facilitar decisiones públicas más precisas,
+              como la activación de ayudas específicas al sector.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="metodo">
+      <div class="container">
+        <h2>¿Cómo funciona el sistema?</h2>
+        <p>
+          Integramos información aerobiológica (polen atmosférico), datos meteorológicos, registros reales de producción de bellota
+          e imágenes satelitales. Tras su procesamiento e integración, se genera un índice de producción que alimenta un modelo predictivo.
+          Los resultados se difunden para su uso como sistema de alerta.
+        </p>
+
+        <div class="infografia-wrap">
+          <!-- Cambia el nombre si tu archivo se llama distinto -->
+          <img src="infografia-metodo.jpg" alt="Esquema del sistema AeroACORN (página 2)">
+
+          <!-- Etiquetas superpuestas (en español) -->
+          <span class="tag tag-coleccion">Recogida de datos</span>
+          <span class="tag tag-procesado">Procesamiento de datos</span>
+          <span class="tag tag-indice">Índice de producción de bellota</span>
+          <span class="tag tag-modelo">Modelo</span>
+          <span class="tag tag-difusion">Difusión</span>
+        </div>
+
+        <p class="muted" style="margin-top:12px;">
+          Nota: en pantallas pequeñas (móvil) las etiquetas se ocultan automáticamente para no tapar la imagen.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 AeroACORN | Universidad de Córdoba
+  </footer>
 
 </body>
 </html>
