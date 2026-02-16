@@ -68,24 +68,39 @@ header{
   margin-bottom:12px;
 }
 
+/* Bloque principal del header centrado */
+.hero{
+  text-align:center;
+}
+
 h1{
   margin:0 0 10px;
   font-size:56px;
+}
+
+/* Código del proyecto al lado del título */
+.project-code{
+  font-size:20px;
+  font-weight:500;
+  color:var(--muted);
 }
 
 .sub{
   font-size:18px;
   color:var(--muted);
   max-width:800px;
+  margin:0 auto; /* centrado */
 }
 
 details{
-  margin-top:14px;
+  margin:14px auto 0; /* centrado */
   background:var(--white);
   border:1px solid var(--border);
   border-radius:14px;
   padding:12px;
   box-shadow:var(--shadow);
+  max-width:800px;
+  text-align:left; /* texto interno normal */
 }
 
 summary{
@@ -185,11 +200,14 @@ h2{
   margin-top:20px;
   display:flex;
   justify-content:center;
+  align-items:center;
   gap:28px;
 }
 
 .social a{
-  display:inline-block;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   transition:0.3s ease;
 }
 
@@ -198,6 +216,12 @@ h2{
   height:40px;
   object-fit:contain;
   transition:0.3s ease;
+}
+
+/* Ajuste específico para Facebook (compensa márgenes del logo) */
+.social img.facebook{
+  width:46px;
+  height:46px;
 }
 
 .social a:hover img{
@@ -216,6 +240,7 @@ footer{
 @media(max-width:900px){
   .cards{grid-template-columns:1fr;}
   h1{font-size:42px;}
+  .project-code{font-size:16px;}
   .topbar img{height:60px;}
 }
 </style>
@@ -238,20 +263,28 @@ footer{
       </div>
     </div>
 
-    <div class="badge">AeroACORN (P.P. 2025 Submod. 2.6_1)</div>
+    <!-- Bloque centrado -->
+    <div class="hero">
 
-    <h1>AeroACORN</h1>
+      <!-- badge opcional: lo dejo, pero sin el código (ya va en el título) -->
+      <div class="badge">AeroACORN</div>
 
-    <p class="sub">
-      Aerobiología y teledetección para el desarrollo del primer sistema integral de alerta en la predicción temprana de la producción de bellota
-    </p>
+      <h1>
+        AeroACORN <span class="project-code">(P.P. 2025 Submod. 2.6_1)</span>
+      </h1>
 
-    <details>
-      <summary>Ver título oficial del proyecto (EN)</summary>
-      <div class="enTitle">
-        <em>Aerobiology and remote sensing for early forecasting of ACORN production: first early warning system</em>
-      </div>
-    </details>
+      <p class="sub">
+        Aerobiología y teledetección para el desarrollo del primer sistema integral de alerta en la predicción temprana de la producción de bellota
+      </p>
+
+      <details>
+        <summary>Ver título oficial del proyecto (EN)</summary>
+        <div class="enTitle">
+          <em>Aerobiology and remote sensing for early forecasting of ACORN production: first early warning system</em>
+        </div>
+      </details>
+
+    </div>
 
   </div>
 </header>
@@ -341,7 +374,7 @@ footer{
   © 2026 AeroACORN | Universidad de Córdoba
 
   <div class="social">
-    
+
     <a href="https://www.linkedin.com/in/rocío-lópez-orozco-9a320377" target="_blank">
       <img src="./linkedin.png" alt="LinkedIn">
     </a>
@@ -351,7 +384,7 @@ footer{
     </a>
 
     <a href="https://www.facebook.com/rea.aerobiologia/" target="_blank">
-      <img src="./facebook.jpg" alt="Facebook">
+      <img src="./facebook.png" alt="Facebook" class="facebook">
     </a>
 
   </div>
