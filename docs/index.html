@@ -58,6 +58,7 @@ header{
   object-fit:contain;
 }
 
+/* HERO CENTRADO */
 .hero{
   text-align:center;
 }
@@ -80,7 +81,7 @@ h1{
   margin:0 auto;
 }
 
-/* DETAILS */
+/* DETAILS AJUSTADO AL TEXTO + CENTRADO */
 details{
   margin:20px auto 0;
   background:var(--white);
@@ -114,11 +115,12 @@ h2{
   margin-bottom:30px;
 }
 
-/* Títulos centrados */
+/* Títulos centrados (solo donde se aplique la clase) */
 .center-title{
   text-align:center;
 }
 
+/* Cards */
 .cards{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -159,16 +161,46 @@ h2{
   border-radius:12px;
 }
 
-/* Equipo */
+/* Equipo: layout a dos columnas (caja izquierda + imagen derecha) */
+.team-wrapper{
+  display:flex;
+  gap:40px;
+  align-items:stretch;
+}
+
+.team-left{
+  flex:1.2;
+}
+
+.team-right{
+  flex:0.8;
+}
+
 .team-card{
   background:var(--white);
   padding:24px;
   border-radius:var(--radius);
   border:1px solid var(--border);
   box-shadow:var(--shadow);
-  max-width:850px;
-  margin:0 auto;
   text-align:left;
+  width:100%;
+}
+
+/* Imagen decorativa */
+.team-image{
+  background:var(--white);
+  border-radius:var(--radius);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  height:100%;
+}
+
+.team-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .ip-link{
@@ -216,11 +248,6 @@ h2{
   transition:0.3s ease;
 }
 
-.social img.facebook{
-  width:46px;
-  height:46px;
-}
-
 .social a:hover img{
   transform:scale(1.12);
   opacity:0.85;
@@ -239,6 +266,13 @@ footer{
   h1{font-size:42px;}
   .project-code{font-size:16px;}
   .topbar img{height:60px;}
+
+  .team-wrapper{
+    flex-direction:column;
+  }
+  .team-right{
+    min-height:240px;
+  }
 }
 </style>
 </head>
@@ -301,7 +335,7 @@ footer{
       </div>
 
       <div class="card">
-        <h3>Primer sistema integral de alerta para la producción de bellota</h3>
+        <h3>El primer sistema integral de alerta para la producción de bellota</h3>
         <p>
           El proyecto desarrolla un modelo predictivo innovador que integra 27 años de datos de polen atmosférico,
           producción real de bellota, variables meteorológicas e imágenes satelitales.
@@ -318,7 +352,7 @@ footer{
 
 <section>
   <div class="container">
-  <h2 class="center-title">Metodología y esquema de trabajo</h2>
+    <h2 class="center-title">Metodología y esquema de trabajo</h2>
 
     <div class="figure">
       <img class="infografia-img" src="./infografia.jpg" alt="Esquema metodológico del proyecto AeroACORN">
@@ -330,31 +364,45 @@ footer{
   <div class="container">
     <h2>Equipo investigador</h2>
 
-    <div class="team-card">
-      <p>
-        <strong>
-          <a href="https://www.uco.es/investiga/grupos/rea/" target="_blank" class="ip-link">
-            Grupo de Aerobiología
-          </a>
-        </strong><br>
-        Universidad de Córdoba
-      </p>
+    <div class="team-wrapper">
 
-      <p><strong>IP:</strong>
-        <a class="ip-link" href="https://linktr.ee/rlopez_orozco" target="_blank">
-          Rocío López Orozco
-        </a>
-      </p>
+      <div class="team-left">
+        <div class="team-card">
+          <p>
+            <strong>
+              <a href="https://www.uco.es/investiga/grupos/rea/" target="_blank" class="ip-link">
+                Grupo de Aerobiología
+              </a>
+            </strong><br>
+            Universidad de Córdoba
+          </p>
 
-      <p>
-        Carmen Galán Soldevilla · Herminia García Mozo · Jose Oteros · Carmen García Llamas
-      </p>
+          <p><strong>IP:</strong>
+            <a class="ip-link" href="https://linktr.ee/rlopez_orozco" target="_blank">
+              Rocío López Orozco
+            </a>
+          </p>
 
-      <div class="contact">
-        📩 Contacto:
-        <a href="mailto:rlorozco@uco.es">rlorozco@uco.es</a>
+          <p>
+            Carmen Galán Soldevilla · Herminia García Mozo · Jose Oteros · Carmen García Llamas
+          </p>
+
+          <div class="contact">
+            📩 Contacto:
+            <a href="mailto:rlorozco@uco.es">rlorozco@uco.es</a>
+          </div>
+        </div>
       </div>
+
+      <div class="team-right">
+        <!-- Imagen decorativa (sube encinas.jpg a docs). Si no existe, verás un icono roto -->
+        <div class="team-image">
+          <img src="./encinas.jpg" alt="Dehesa con encinas">
+        </div>
+      </div>
+
     </div>
+
   </div>
 </section>
 
@@ -373,7 +421,7 @@ footer{
     </a>
 
     <a href="https://www.facebook.com/rea.aerobiologia/" target="_blank">
-      <img src="./facebook.jpg" alt="Facebook" class="facebook">
+      <img src="./facebook.jpg" alt="Facebook">
     </a>
   </div>
 </footer>
