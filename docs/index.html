@@ -19,6 +19,7 @@
 }
 
 *{box-sizing:border-box;}
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -99,7 +100,9 @@ summary{
 }
 
 /* Sections */
-section{padding:60px 0;}
+section{
+  padding:60px 0;
+}
 
 h2{
   font-size:34px;
@@ -175,6 +178,31 @@ h2{
   color:var(--accent);
   font-weight:600;
   text-decoration:none;
+}
+
+/* REDES SOCIALES */
+.social{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:28px;
+}
+
+.social a{
+  display:inline-block;
+  transition:0.3s ease;
+}
+
+.social img{
+  width:40px;
+  height:40px;
+  object-fit:contain;
+  transition:0.3s ease;
+}
+
+.social a:hover img{
+  transform:scale(1.12);
+  opacity:0.85;
 }
 
 footer{
@@ -279,14 +307,14 @@ footer{
     <h2>Equipo investigador</h2>
 
     <div class="team-card">
-    <p>
-  <strong>
-    <a href="https://www.uco.es/investiga/grupos/rea/" target="_blank" class="ip-link">
-      Grupo de Aerobiología
-    </a>
-  </strong><br>
-  Universidad de Córdoba
-</p>
+      <p>
+        <strong>
+          <a href="https://www.uco.es/investiga/grupos/rea/" target="_blank" class="ip-link">
+            Grupo de Aerobiología
+          </a>
+        </strong><br>
+        Universidad de Córdoba
+      </p>
 
       <p><strong>IP:</strong>
         <a class="ip-link" href="https://linktr.ee/rlopez_orozco" target="_blank">
@@ -311,6 +339,23 @@ footer{
 
 <footer>
   © 2026 AeroACORN | Universidad de Córdoba
+
+  <div class="social">
+    
+    <a href="https://www.linkedin.com/in/rocío-lópez-orozco-9a320377" target="_blank">
+      <img src="./linkedin.png" alt="LinkedIn">
+    </a>
+
+    <a href="https://www.instagram.com/rea_aerobiologia" target="_blank">
+      <img src="./instagram.png" alt="Instagram">
+    </a>
+
+    <a href="https://www.facebook.com/rea.aerobiologia/" target="_blank">
+      <img src="./facebook.png" alt="Facebook">
+    </a>
+
+  </div>
+
 </footer>
 
 </body>
