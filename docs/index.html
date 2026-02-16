@@ -58,17 +58,7 @@ header{
   object-fit:contain;
 }
 
-.badge{
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:999px;
-  background:#e0f2fe;
-  color:#0369a1;
-  font-size:14px;
-  margin-bottom:12px;
-}
-
-/* Bloque principal del header centrado */
+/* Bloque principal centrado */
 .hero{
   text-align:center;
 }
@@ -78,7 +68,6 @@ h1{
   font-size:56px;
 }
 
-/* Código del proyecto al lado del título */
 .project-code{
   font-size:20px;
   font-weight:500;
@@ -89,18 +78,19 @@ h1{
   font-size:18px;
   color:var(--muted);
   max-width:800px;
-  margin:0 auto; /* centrado */
+  margin:0 auto;
 }
 
+/* DETAILS MÁS PEQUEÑO Y CENTRADO */
 details{
-  margin:14px auto 0; /* centrado */
+  margin:20px auto 0;
   background:var(--white);
   border:1px solid var(--border);
   border-radius:14px;
-  padding:12px;
+  padding:10px 18px;
   box-shadow:var(--shadow);
-  max-width:800px;
-  text-align:left; /* texto interno normal */
+  display:inline-block; /* se ajusta al texto */
+  text-align:center;
 }
 
 summary{
@@ -112,6 +102,7 @@ summary{
   margin-top:8px;
   font-size:14px;
   color:var(--muted);
+  text-align:left;
 }
 
 /* Sections */
@@ -119,15 +110,18 @@ section{
   padding:60px 0;
 }
 
+/* CENTRAR ESTE TÍTULO */
 h2{
   font-size:34px;
-  margin-bottom:18px;
+  margin-bottom:30px;
+  text-align:center;
 }
 
 .cards{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:20px;
+  text-align:left;
 }
 
 .card{
@@ -218,7 +212,6 @@ h2{
   transition:0.3s ease;
 }
 
-/* Ajuste específico para Facebook (compensa márgenes del logo) */
 .social img.facebook{
   width:46px;
   height:46px;
@@ -263,11 +256,7 @@ footer{
       </div>
     </div>
 
-    <!-- Bloque centrado -->
     <div class="hero">
-
-      <!-- badge opcional: lo dejo, pero sin el código (ya va en el título) -->
-      <div class="badge">AeroACORN</div>
 
       <h1>
         AeroACORN <span class="project-code">(P.P. 2025 Submod. 2.6_1)</span>
@@ -304,8 +293,7 @@ footer{
           Sin embargo, su elevada variabilidad anual dificulta la planificación ganadera y genera incertidumbre económica en zonas rurales.
           <br><br>
           A diferencia de otros cultivos como el olivar, donde la producción se cuantifica con precisión en almazara, la bellota no se cosecha
-          ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol. Esto hace que los datos productivos sean
-          escasos, fragmentarios y, en muchos casos, inexistentes.
+          ni se pesa: es consumida directamente por el ganado y la fauna silvestre tras caer del árbol.
         </p>
       </div>
 
@@ -314,57 +302,10 @@ footer{
         <p>
           El proyecto desarrolla un modelo predictivo innovador que integra 27 años de datos de polen atmosférico,
           producción real de bellota, variables meteorológicas e imágenes satelitales.
-          <br><br>
-          El objetivo es anticipar la productividad con meses de antelación a la montanera,
-          permitiendo planificar la carga ganadera, optimizar la gestión de recursos,
-          reducir el impacto de años de baja producción y facilitar decisiones públicas más precisas.
         </p>
       </div>
 
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>Metodología y esquema de trabajo</h2>
-
-    <div class="figure">
-      <img class="infografia-img" src="./infografia.jpg" alt="Esquema metodológico del proyecto AeroACORN">
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>Equipo investigador</h2>
-
-    <div class="team-card">
-      <p>
-        <strong>
-          <a href="https://www.uco.es/investiga/grupos/rea/" target="_blank" class="ip-link">
-            Grupo de Aerobiología
-          </a>
-        </strong><br>
-        Universidad de Córdoba
-      </p>
-
-      <p><strong>IP:</strong>
-        <a class="ip-link" href="https://linktr.ee/rlopez_orozco" target="_blank">
-          Rocío López Orozco
-        </a>
-      </p>
-
-      <p>
-        Carmen Galán Soldevilla · Herminia García Mozo · Jose Oteros · Carmen García Llamas
-      </p>
-
-      <div class="contact">
-        📩 Contacto:
-        <a href="mailto:rlorozco@uco.es">rlorozco@uco.es</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -374,7 +315,6 @@ footer{
   © 2026 AeroACORN | Universidad de Córdoba
 
   <div class="social">
-
     <a href="https://www.linkedin.com/in/rocío-lópez-orozco-9a320377" target="_blank">
       <img src="./linkedin.png" alt="LinkedIn">
     </a>
@@ -386,7 +326,6 @@ footer{
     <a href="https://www.facebook.com/rea.aerobiologia/" target="_blank">
       <img src="./facebook.png" alt="Facebook" class="facebook">
     </a>
-
   </div>
 
 </footer>
